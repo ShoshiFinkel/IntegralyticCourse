@@ -1,3 +1,7 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 def count_nulls(df,col):
     print(df[col].isnull().sum())
 
