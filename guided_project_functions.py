@@ -5,6 +5,6 @@ import seaborn as sns
 
 hotel_bookings = pd.read_csv('hotel_bookings.csv')
 
-def create_catplot(x):
+def count_nulls(col):
+    hotel_bookings[col].isnull().sum().sort_values(ascending=False)
 
-sns.catplot(x=x, kind='count', data=df).set(title = 'Bar chart of {} column'.format(x))
