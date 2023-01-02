@@ -17,7 +17,6 @@ def drop_col(df,col):
 
 def clean_nulls(df,col,fillna):
     sum_nulls = count_nulls(df,col)
-    print(sum_nulls.dtype)
     if sum_nulls >500:
         df = drop_col(df,col)
         return df
