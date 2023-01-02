@@ -10,12 +10,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from plotting_functions import create_heatmap
-from analysis_functions import explore_data
+from analysis_functions import display_info, clean_nulls, count_nulls, datetime_col
 
 df = pd.read_csv("hotel_bookings.csv")
 
-explore_data(df)
-
+display_info(df)
+clean_nulls(df, 'company', 0)
+clean_nulls(df, 'agent', 0)
+clean_nulls(df, 'children', 0)
+clean_nulls(df, 'country', 'PRT')
+count_nulls(df, 'children')
+count_nulls(df, 'country')
+datetime_col(df, 'arrival_date', 'arrival_date_year', 'arrival_date_month', 'arrival_date_day_of_month')
 create_heatmap(df, ['lead_time','is_canceled'])
 
 
