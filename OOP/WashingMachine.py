@@ -14,13 +14,13 @@ class WashingMachine:
     
     def set_settings(self):
         print("my temperature is", self.temp)
-        print("my spin speed is", self.spin_speed)
+        print("my spin speed is", self.spin)
         print("my cycle type is", self.cycle)
 
     def agitate(self):
         print("scrubbing with", self.detergent)
 
-    def rinse():
+    def rinse(self):
         print("rinsing")
 
     def wash_laundry(self):
@@ -29,5 +29,5 @@ class WashingMachine:
         self.agitate()
         self.rinse()
 
-
-
+my_washing_machine = WashingMachine(30, 700, 'cottons', False, 'Persil')
+my_washing_machine.wash_laundry()
