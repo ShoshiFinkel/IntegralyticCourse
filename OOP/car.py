@@ -10,10 +10,10 @@ class Car:
         self.color = clr
         self.model = model
         self.gas_tank_size = gas_tank_size
-        self.fuel_level = 0  #every single instance of a car will start out at fuel level 0, it will not remain that way once we start using our cars
+        self.__fuel_level = 0  #every single instance of a car will start out at fuel level 0, it will not remain that way once we start using our cars
 
     def add_fuel_and_show_message(self, amount, type_fuel = "regular"):
-        old_fuel_level = self.fuel_level
+        old_fuel_level = self.__fuel_level
         new_fuel_level = self.add_fuel_and_get_fuel_level(amount)
         if new_fuel_level > old_fuel_level:
             return  "Added fuel of type " + type_fuel
@@ -22,19 +22,29 @@ class Car:
 
 
     def add_fuel_and_get_fuel_level(self, amount):
-        if self.fuel_level + amount <= self.gas_tank_size:
-            self.fuel_level += amount
-        return self.fuel_level
+        if self.__fuel_level + amount <= self.gas_tank_size:
+            self.__fuel_level += amount
+        return self.__fuel_level
 
     def __str__(self):
-        return "This is my car:  {} {}. I have {} of fuel".format(self.brand, self.num_wheels, self.fuel_level)
+        return "This is my car:  {} {}. I have {} of fuel".format(self.brand, self.num_wheels, self.__fuel_level)     
+
+    def set_fuel_level(self, amount):
+        if amount <= self.gas_tank_size:
+            self.__fuel_level = amount
+     
+    def get_fuel_level(self):
+        return self.__fuel_level
 
 def main():
     myLexus = Car("Lexus", 7, "silver", "Qx60")
     myHonda = Car("Honda", 5, "purple", "L700", 17)
 
+    myLexus.__fuel_level = 80
+    myLexus.set_fuel_level(80)
+    myLexus.set_fuel_level(14) #this works
 
-    myLexus.add_fuel_and_show_message(14)
+    #myLexus.add_fuel_and_show_message(14)
     make_fuel_levels_equal(myLexus, myHonda)
     
     print(myLexus)
@@ -50,14 +60,17 @@ def main():
     #print(4)
 
 def make_fuel_levels_equal(car1, car2):
-    if car1.fuel_level > car2.fuel_level:
-        amt_diff = car1.fuel_level - car2.fuel_level
-        car2.add_fuel_and_show_message(amt_diff)
-    elif car2.fuel_level > car1.fuel_level:
-        amt_diff = car2.fuel_level - car1.fuel_level
-        car1.add_fuel_and_show_message(amt_diff)
+    car_1_fuel_level = car1.get_fuel_level()
+    car2_fuel_level = car2.get_fuel_level()
+    if car_1_fuel_level > car2_fuel_level:
+        amt_diff = car_1_fuel_level - car2_fuel_level
+        car2.set_fuel_level(amt_diff)
+        #car2.add_fuel_and_show_message(amt_diff)
+    elif car2_fuel_level > car_1_fuel_level:
+        amt_diff = car2_fuel_level - car_1_fuel_level
+        car1.set_fuel_level(amt_diff)
 
-    return car1.fuel_level == car2.fuel_level
+    return car1.get_fuel_level() == car2.get_fuel_level()
     
 
         
@@ -67,7 +80,5 @@ main()
 
 
 
-
-        
 
 
