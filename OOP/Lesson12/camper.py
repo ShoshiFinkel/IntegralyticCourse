@@ -20,8 +20,9 @@ class Camper(Person):
         age = time_now - birth
         print(age) 
 
+    # have to fix the str method, and the date to be years
     def __str__(self) -> str:
- #       return "Camper :" +(super())+"\n"+self.f_name+"is "+self.age+"and is allergic to: "+self.allergies
+        return "Camper :" +str(super())+"\n"+"is "+str(self.year)+"and is allergic to: "+str(self.allergies[0])
 
 c = Camper('sh', 'f', 1998,10,2)
 c.get_age()

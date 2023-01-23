@@ -5,8 +5,7 @@ class Person:
         
 
     def __str__(self) -> str:
-        return 'Hi {} {}'.format(self.first_name, self.last_name)
+        return '{} {}'.format(self.first_name, self.last_name)
 
-p = Person('sh', 'f')
-print(p)
+
 

@@ -7,4 +7,4 @@ class Counselor(Person):
         self.salary = salary
 
     def __str__(self) -> str:
-        return "Counselor :"+super()+"\n"+" was hired on: "+str(self.hire_date)+"\n"+"gets paid: "+self.salar
+        return "Counselor :"+super()+"\n"+" was hired on: "+str(self.hire_date)+"\n"+"gets paid: "+self.salary
