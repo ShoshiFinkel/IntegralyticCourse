@@ -13,21 +13,20 @@ def count_categories():
         count_categories_dict[category]=count_categories
     return count_categories_dict
 
-def make_chunks(df, num_chunks):
-    num_rows = df.shape[0]
-    chunk_size = math.ceil(num_rows / num_chunks)
+def make_chunks(categories, num_chunks):
+    len_rows = len(categories)
+    chunk_size = math.ceil(len_rows / num_chunks)
 
     chunks = []
-    for i in range(0, num_rows, chunk_size):
+    for i in range(0, len_rows, chunk_size):
         chunk = df[i:i + chunk_size]
         chunks.append(chunk)
     
     return chunks
-
 start = time.time()
 if __name__ == '__main__':
     with ProcessPoolExecutor() as exe:
-        processes = [exe.submit(count_categories) for chunk in make_chunks(df, 6)]
+        processes = [exe.submit(count_categories) for chunk in make_chunks(categories, 4)]
     results = [process.result() for process in processes]
     merged_results = {}
     for result in results:
