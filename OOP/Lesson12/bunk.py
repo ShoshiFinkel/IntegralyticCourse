@@ -11,5 +11,9 @@ class Bunk:
             self.campers.append(camper)
 
     def __str__(self) -> str:
-        return 'Bunk name: {},\n Counselor: {}\n Campers: {}'.format(self.bunk_name, self.counselor, self.campers)
+        s = 'Bunk name: {},\n Counselor: {}'.format(self.bunk_name, self.counselor)
+        s += '\n Campers:'
+        for camper in self.campers:
+            s += '\n'+camper
+        return s
         

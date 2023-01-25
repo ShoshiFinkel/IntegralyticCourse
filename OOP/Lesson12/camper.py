@@ -1,33 +1,27 @@
-import datetime
+from datetime import datetime
 from allergy import Allergy
 from person import Person
 
 class Camper(Person):
-    def __init__(self, first_name, last_name, year_of_birth, month_of_birth, day_of_birth):
+    def __init__(self, first_name, last_name, dob):
         super().__init__(first_name, last_name)
-        self.year = year_of_birth
-        self.month = month_of_birth
-        self.day = day_of_birth
+        self.dob = dob
         self.allergies = []
 
     def add_allergy(self, allergy: str):
-        new_allergy = Allergy[allergy.upper()]
-        self.allergies.append(new_allergy)
+        if Allergy[allergy.upper()] not in self.allergies:
+            self.allergies.append(Allergy[allergy.upper()])
 
     def get_age(self):
-        time_now = datetime.datetime.today()
-        birth = datetime.datetime(self.year,self.month,self.day) 
+        time_now = datetime.datetime.now().year
+        birth = datetime.strptime(self.dob, "%d-%m-%Y").year
         age = time_now - birth
-        print(age) 
+        return int(age) 
 
-    # have to fix the str method, and the date to be years
+  
     def __str__(self) -> str:
-        return "Camper :" +str(super())+"\n"+"is "+str(self.year)+"and is allergic to: "+str(self.allergies[0])
+        return "Camper :" +str(super())+"\n"+"is "+str(self.get_age())+"and is allergic to: "+str(self.allergies[0])
 
-c = Camper('sh', 'f', 1998,10,2)
-c.get_age()
-c.add_allergy('milk')
-print(c.allergies)
-print(c)
+
 
 

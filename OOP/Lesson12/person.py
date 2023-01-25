@@ -7,5 +7,8 @@ class Person:
     def __str__(self) -> str:
         return '{} {}'.format(self.first_name, self.last_name)
 
-
-
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Person):
+            return self.first_name == other.first_name and self.last_name == other.last_name
+        else:
+            return False
