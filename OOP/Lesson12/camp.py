@@ -68,8 +68,7 @@ class Camp:
         s = "Welcome to " + str(self.camp_name)
         s += '\nThere are ' + str(self.num_bunks) + ' bunks in the camp.'
         s += '\nThe bunks:'
-        # for bunk in self.bunks:
-        #     for each in bunk:
-        #         s += str(each)
+        for person in self.persons:
+            s += str(person)
         return s
 
