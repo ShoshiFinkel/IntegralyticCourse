@@ -4,6 +4,13 @@ from camper import Camper
 import logging
 import logging_file as lf
 
+logging.basicConfig(filename =  lf.LOG_FILE,
+                    filemode = 'a+',
+                    format = '%(asctime)s ,%(msecs)d %(name)s  %(levelname)s  %(message)s',
+                    datefmt = '%H:%M:%S',
+                    level = logging.INFO)
+
+
 class Camp:
     def __init__(self, camp_name: str, max_bunks: int):
         self.camp_name = camp_name
@@ -32,21 +39,29 @@ class Camp:
             new_counselor = Counselor(fname, lname, hire_date, salary)
             self.persons.append(new_counselor)
         else:
-            logging.error("This counselor already exists")
+            # logging.error("This counselor already exists")
+            raise Exception("Counselor already exists!")
 
     def add_camper(self, fname, lname, dob):
         c = self.find_camper(fname, lname)
         if c == None:
             new_camper = Camper(fname, lname, dob)
             self.persons.append(new_camper)
+        else:
+            raise Exception("This camper already exists!")
+
 
     def add_bunk(self, bunk_name, counselor_fname, counselor_lname):
-        if self.num_bunks < self.max_bunks:
-            new_bunk=Bunk(bunk_name, counselor_fname + ' ' + counselor_lname)
-            self.bunks.append(new_bunk)
-            self.num_bunks += 1
+        my_counselor = self.find_counselor(counselor_fname, counselor_lname)
+        if my_counselor == None:
+            raise Exception ("Counselor was not found!")
         else:
-            raise Exception ('You have reached the maximum number of bunks.')
+            if self.num_bunks < self.max_bunks:
+                new_bunk=Bunk(bunk_name, counselor_fname + ' ' + counselor_lname)
+                self.bunks.append(new_bunk)
+                self.num_bunks += 1
+            else:
+                raise Exception ('You have reached the maximum number of bunks.')
     
     def find_bunk(self,bunk_name):
         for bunk in self.bunks:
