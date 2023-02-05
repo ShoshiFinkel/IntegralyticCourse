@@ -1,1 +1,10 @@
 16:52:18 ,886 root  INFO  Added counselor
+17:40:32 ,321 root  INFO  Added counselor
+17:41:55 ,109 root  ERROR  Counselor already exists!
+17:41:55 ,110 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 32, in main
+    our_camp.add_counselor(fname, lname, hire_date, salary)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 43, in add_counselor
+    raise Exception("Counselor already exists!")
+Exception: Counselor already exists!
+
