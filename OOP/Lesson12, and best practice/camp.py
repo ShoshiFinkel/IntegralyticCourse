@@ -2,13 +2,7 @@ from bunk import Bunk
 from counselor import Counselor
 from camper import Camper
 import logging
-import logging_file
-
-logging.basicConfig(filename = an.LOG_FOLDER + an.LOG_FILE,
-                    filemode = 'a+',
-                    format = '%(asctime)s ,%(msecs)d %(name)s  %(levelname)s  %(message)s',
-                    datefmt = '%H:%M:%S',
-                    level = logging.INFO)
+import logging_file as lf
 
 class Camp:
     def __init__(self, camp_name: str, max_bunks: int):

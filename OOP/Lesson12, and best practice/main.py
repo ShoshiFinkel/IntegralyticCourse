@@ -1,4 +1,12 @@
 from camp import Camp
+import logging
+import logging_file as lf
+
+logging.basicConfig(filename = lf.LOG_FOLDER + lf.LOG_FILE,
+                    filemode = 'a+',
+                    format = '%(asctime)s ,%(msecs)d %(name)s  %(levelname)s  %(message)s',
+                    datefmt = '%H:%M:%S',
+                    level = logging.INFO)
 
 def main():
 
@@ -13,7 +21,15 @@ def main():
                 lname = input('Enter last name:')
                 hire_date = input('hire date(dd-mm-yyyy):')
                 salary = input('salary:')
-                our_camp.add_counselor(fname, lname, hire_date, salary)
+                try:
+                    our_camp.add_counselor(fname, lname, hire_date, salary)
+                except ValueError as exc:
+                    print(str(exc))
+                    logging.error(traceback.format_exc())
+                    hire_date = input('Hire date was bad format, please re-enter(yyyy-MM-dd: ')
+                    our_camp.add_counselor(fname, lname, hire_date, salary)
+                logging.info("Added counselor")
+            
             elif menu_choice == 2: #add bunk
                 bunk_name = input('Enter bunk name:')
                 counselor_fname = input('Enter counselor\'s first name:' )
