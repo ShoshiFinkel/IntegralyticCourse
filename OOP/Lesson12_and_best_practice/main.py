@@ -28,9 +28,9 @@ def main():
                     logging.info("Added counselor")
                 except ValueError as exc:
                     logging.error(traceback.format_exc())
-                hire_date = input('Hire date was bad format, please re-enter(yyyy-MM-dd: ')
-                our_camp.add_counselor(fname, lname, hire_date, salary)
-                logging.info("Added counselor after change")
+                    hire_date = input('Hire date was bad format, please re-enter(yyyy-MM-dd: ')
+                    our_camp.add_counselor(fname, lname, hire_date, salary)
+                    logging.info("Added counselor after change")
 
             elif menu_choice == 2: #add bunk
                 bunk_name = input('Enter bunk name:')
@@ -48,9 +48,9 @@ def main():
                     logging.info("camper added successfully")
                 except ValueError as exc:
                     logging.error(str(exc)+traceback.format_exc())
-                dob=input('Date of birth was bad format,please re-enter (dd/mm/yyyy):')
-                our_camp.add_camper(fname, lname, dob)
-                logging.info("camper added successfully after change")
+                    dob=input('Date of birth was bad format,please re-enter (dd/mm/yyyy):')
+                    our_camp.add_camper(fname, lname, dob)
+                    logging.info("camper added successfully after change")
 
 
             elif menu_choice == 4: #add an allergy
@@ -75,14 +75,11 @@ def main():
             elif menu_choice == 0:
                 print('You exited the application')
                 logging.info('You exited the application')
-                
+
         except Exception as ex:
-            print('Error!'+str(ex))
-            traceback.print_exc()
+            #traceback.print_exc()
             logging.error(str(ex))
             logging.error(traceback.format_exc())
-        else:
-            logging.info('task completed successfully')
                     
 def get_menu_choice():
     menu = "\n1. Add A Counselor"

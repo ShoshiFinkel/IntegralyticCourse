@@ -4,11 +4,11 @@ from camper import Camper
 import logging
 import logging_file as lf
 
-logging.basicConfig(filename =  lf.LOG_FILE,
-                    filemode = 'a+',
-                    format = '%(asctime)s ,%(msecs)d %(name)s  %(levelname)s  %(message)s',
-                    datefmt = '%H:%M:%S',
-                    level = logging.INFO)
+# logging.basicConfig(filename =  lf.LOG_FILE,
+#                     filemode = 'a+',
+#                     format = '%(asctime)s ,%(msecs)d %(name)s  %(levelname)s  %(message)s',
+#                     datefmt = '%H:%M:%S',
+#                     level = logging.INFO)
 
 
 class Camp:
@@ -87,8 +87,5 @@ class Camp:
     def __str__(self) -> str:
         s = "Welcome to " + str(self.camp_name)
         s += '\nThere are ' + str(self.num_bunks) + ' bunks in the camp.'
-        s += '\nThe bunks:'
-        for person in self.persons:
-            s += str(person)
         return s
 

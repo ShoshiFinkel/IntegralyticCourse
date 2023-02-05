@@ -8,3 +8,135 @@
     raise Exception("Counselor already exists!")
 Exception: Counselor already exists!
 
+17:46:19 ,976 root  ERROR  Counselor was not found!
+17:46:19 ,977 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+17:47:02 ,735 root  INFO  Added counselor
+17:47:18 ,711 root  ERROR  Counselor already exists!
+17:47:18 ,712 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 32, in main
+    our_camp.add_counselor(fname, lname, hire_date, salary)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 43, in add_counselor
+    raise Exception("Counselor already exists!")
+Exception: Counselor already exists!
+
+17:53:35 ,649 root  INFO  Added counselor
+17:57:55 ,551 root  ERROR  Counselor already exists!
+17:57:55 ,551 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 32, in main
+    our_camp.add_counselor(fname, lname, hire_date, salary)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 43, in add_counselor
+    raise Exception("Counselor already exists!")
+Exception: Counselor already exists!
+
+18:08:20 ,126 root  INFO  camper added successfully
+18:11:52 ,350 root  ERROR  This camper already exists!
+18:11:52 ,350 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 52, in main
+    our_camp.add_camper(fname, lname, dob)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 51, in add_camper
+    raise Exception("This camper already exists!")
+Exception: This camper already exists!
+
+18:23:28 ,667 root  INFO  Added counselor
+18:23:28 ,668 root  INFO  task completed successfully
+18:23:52 ,617 root  INFO  bunk added successfully
+18:23:52 ,617 root  INFO  task completed successfully
+18:24:22 ,49 root  INFO  camper added successfully
+18:24:22 ,50 root  INFO  task completed successfully
+18:25:35 ,18 root  ERROR  'NoneType' object has no attribute 'add_allergy'
+18:25:35 ,18 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 60, in main
+    our_camp.add_allergy(fname, lname, allergy)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 85, in add_allergy
+    return my_camper.add_allergy(allergy)
+AttributeError: 'NoneType' object has no attribute 'add_allergy'
+
+18:26:20 ,728 root  INFO  allergy added successfully
+18:26:20 ,728 root  INFO  task completed successfully
+18:31:15 ,712 root  INFO  Added counselor
+18:31:15 ,713 root  INFO  task completed successfully
+18:31:31 ,369 root  INFO  bunk added successfully
+18:31:31 ,369 root  INFO  task completed successfully
+18:32:25 ,76 root  INFO  Added counselor
+18:32:25 ,76 root  INFO  task completed successfully
+18:32:55 ,434 root  ERROR  Counselor was not found!
+18:32:55 ,435 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:33:23 ,879 root  ERROR  Counselor was not found!
+18:33:23 ,880 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:34:01 ,67 root  ERROR  Counselor was not found!
+18:34:01 ,68 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:34:16 ,380 root  INFO  bunk added successfully
+18:34:16 ,380 root  INFO  task completed successfully
+18:34:34 ,974 root  INFO  camper added successfully
+18:34:34 ,974 root  INFO  task completed successfully
+18:34:54 ,730 root  INFO  allergy added successfully
+18:34:54 ,730 root  INFO  task completed successfully
+18:36:29 ,197 root  INFO  camper assigned successfully
+18:36:29 ,197 root  INFO  task completed successfully
+18:36:34 ,290 root  ERROR  can only concatenate str (not "super") to str
+18:36:34 ,291 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 72, in main
+    print(our_camp)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 92, in __str__
+    s += str(person)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\counselor.py", line 11, in __str__
+    return "Counselor :"+super()+"\n"+" was hired on: "+str(self.hire_date)+"\n"+"gets paid: "+self.salary
+TypeError: can only concatenate str (not "super") to str
+
+18:37:01 ,0 root  INFO  You exited the application
+18:37:01 ,0 root  INFO  task completed successfully
+18:41:03 ,585 root  INFO  Added counselor
+18:41:16 ,817 root  ERROR  Counselor was not found!
+18:41:16 ,817 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:42:12 ,307 root  INFO  Added counselor
+18:43:02 ,874 root  ERROR  Counselor was not found!
+18:43:02 ,876 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:43:24 ,113 root  INFO  bunk added successfully
+18:45:45 ,840 root  INFO  Added counselor
+18:46:03 ,738 root  ERROR  Counselor was not found!
+18:46:03 ,742 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+18:46:23 ,844 root  INFO  bunk added successfully
+18:47:03 ,543 root  INFO  camper added successfully
+18:47:14 ,788 root  INFO  printed __str__ of our_camp
