@@ -140,3 +140,13 @@ Exception: Counselor was not found!
 18:46:23 ,844 root  INFO  bunk added successfully
 18:47:03 ,543 root  INFO  camper added successfully
 18:47:14 ,788 root  INFO  printed __str__ of our_camp
+22:50:28 ,868 root  INFO  Added counselor
+22:50:54 ,943 root  ERROR  Counselor was not found!
+22:50:54 ,945 root  ERROR  Traceback (most recent call last):
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\main.py", line 39, in main
+    our_camp.add_bunk(bunk_name, counselor_fname, counselor_lname)
+  File "c:\Users\The user\Documents\course\IntegralyticCourse\OOP\Lesson12_and_best_practice\camp.py", line 57, in add_bunk
+    raise Exception ("Counselor was not found!")
+Exception: Counselor was not found!
+
+22:51:34 ,88 root  INFO  camper added successfully
