@@ -1,0 +1,3 @@
+2023-02-19 11:10:45,508 root WARNING soc not in store.
+2023-02-19 11:10:56,885 root WARNING Not valid number
+2023-02-21 12:11:25,448 root INFO name was entered
