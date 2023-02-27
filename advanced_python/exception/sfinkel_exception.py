@@ -9,7 +9,8 @@ datefmt='%Y-%m-%d %H:%M:%S',
 #datefmt='%H:%M:%S',
 level=logging.INFO)
 
-customer_name = input("Please enter your name ")
+customer_name = (lambda name: name)(input("Please enter your name "))
+customer_phone = (lambda name: name)(input("Please enter your name "))
 logging.info("name was entered")
 print('Hi', customer_name, '\nwelcome to our clothing store')
 clothing_dict = {'socks': 12, 'black skirt': 100, 'blue skirt': 130,  'shirt': 80, 'dress': 450, 'sweater': 145}
