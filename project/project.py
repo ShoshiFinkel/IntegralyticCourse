@@ -1,35 +1,36 @@
-import math
 import pandas as pd
+import math
 from multiprocessing import Pool
 import functools
+
+df = pd.read_csv('project\hotel_bookings.csv', na_values = ['Undefined', '', 'none', '-'])
+
 def make_chunks(df, num_chunks):
-    num_rows = df.shape[0]
-    chunk_size = math.ceil(num_rows / num_chunks)
-    chunks = []
-    for i in range(0, num_rows, chunk_size):
-        chunk = df[i:i + chunk_size]
-        chunks.append(chunk)
-    return chunks
-def count_industries(df):
-    people_in_industries = {}
-    for industry_name in industries:
-        people_in_industries[industry_name] = df['Industry'].str.count(industry_name).sum()
-    return people_in_industries
+    chunk_size = math.ceil(df.shape[0] / num_chunks)
+    return [df[i:i+chunk_size] for i in range(0, df.shape[0], chunk_size)]
 
-df = pd.read_csv('hotel_bookings.csv', na_values = ['undefined', '', 'none', '-'])
-data = dict(df['lead_time'].value_counts())
-print(data)
-# industries = richest_people['Industry'].unique()
-# rp_chunks = make_chunks(richest_people, 8)
+def map_reduce(data, num_processes, mapper, reducer):
+    chunks = make_chunks(data, num_processes)
+    
+    with Pool(num_processes) as pool:
+        chunk_results = pool.map(mapper, chunks)
+    return functools.reduce(reducer, chunk_results)
 
-# if __name__ == "__main__":
-#     with Pool(8) as pool:
-#         chunk_results = pool.map(count_industries, rp_chunks)
-#     for chunk1 in chunk_results:
-#         merged = {}
-#         merged.update(freq_chunk1)
-#         merged.update(freq_chunk2)
-#         print(merged)
-#     result = functools.reduce(update, chunk_results)
-#     print(chunk_results)
-   
+def mapper(data):
+    lead_time_count = dict(data['lead_time'].value_counts())
+    num_list = [2,4,6,8,10,12,14,16,18,20]
+    result_dict = {}
+    for num in num_list:
+        if num in lead_time_count:
+            result_dict[num]=lead_time_count[num]
+    return result_dict
+
+def reducer(freq_chunk1, freq_chunk2):
+    for k in set(freq_chunk2):
+        freq_chunk1[k]=freq_chunk1.get(k,0) + freq_chunk2.get(k,0)
+    return freq_chunk1
+
+if __name__ == '__main__':   
+    result = map_reduce(df, 8, mapper, reducer)
+    print(result) 
+    
