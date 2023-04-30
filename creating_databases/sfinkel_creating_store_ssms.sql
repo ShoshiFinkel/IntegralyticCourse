@@ -81,6 +81,21 @@ ALTER ROLE store_rd ADD MEMBER store_rd1@localhost;
 ALTER ROLE store_wrt ADD MEMBER store_wrt1@localhost;
 
 
+INSERT INTO products(product_name, category, price, color, size, stock)
+VALUES ('T-Shirt', 'Man', 20, 'Black', 40, 100),
+('Skirt', 'Woman', 100, 'Blue', 38, 50),
+('Sweater', 'Girls', 80, 'Pink', 4, 75);
+
+
+CREATE INDEX idx_last_name ON products(product_name);
+
+SELECT TOP 2 * FROM products;
+
+SELECT CONCAT(product_name, '-', size, '-', color) AS product_info
+FROM products;
+
+
+
 
 
 
