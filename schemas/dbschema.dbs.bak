@@ -78,7 +78,6 @@
 			<column name="Fax" type="nvarchar" length="24" jt="12" >
 				<column_options><![CDATA[COLLATE Hebrew_CI_AS]]></column_options>
 			</column>
-			<column name="Login" type="nvarchar" length="50" jt="12" />
 			<index name="PK_Customers" unique="PRIMARY_KEY" spec=" CLUSTERED" >
 				<column name="CustomerID" options=" asc" />
 			</index>
@@ -166,14 +165,13 @@
 				<column name="PostalCode" options=" asc" />
 			</index>
 			<constraint name="CK_Birthdate" >
-				<string><![CDATA[[BirthDate]<getdate()]]></string>
+				<string><![CDATA[[BirthDate]<getdate()]]></string>options="" 
 			</constraint>
 			<fk name="FK_Employees_Employees" to_schema="Northwinds.dbo" to_table="Employees" options="" >
 				<fk_column name="ReportsTo" pk="EmployeeID" />
 			</fk>
 		</table>
 		<table name="Order Details" row_count="2155" spec="" >
-			<comment><![CDATA[Basic information about the order and product id with prices and quantity, This table is important to analyze profits.]]></comment>
 			<column name="OrderID" type="int" jt="4" mandatory="y" />
 			<column name="ProductID" type="int" jt="4" mandatory="y" />
 			<column name="UnitPrice" type="money" jt="3" mandatory="y" >
@@ -202,13 +200,13 @@
 				<column name="ProductID" options=" asc" />
 			</index>
 			<constraint name="CK_Discount" >
-				<string><![CDATA[[Discount]>=(0) AND [Discount]<=(1)]]></string>
+				<string><![CDATA[[Discount]>=(0) AND [Discount]<=(1)]]></string>options="" 
 			</constraint>
 			<constraint name="CK_Quantity" >
-				<string><![CDATA[[Quantity]>(0)]]></string>
+				<string><![CDATA[[Quantity]>(0)]]></string>options="" 
 			</constraint>
 			<constraint name="CK_UnitPrice" >
-				<string><![CDATA[[UnitPrice]>=(0)]]></string>
+				<string><![CDATA[[UnitPrice]>=(0)]]></string>options="" 
 			</constraint>
 			<fk name="FK_Order_Details_Orders" to_schema="Northwinds.dbo" to_table="Orders" options="" >
 				<fk_column name="OrderID" pk="OrderID" />
@@ -218,7 +216,6 @@
 			</fk>
 		</table>
 		<table name="Orders" row_count="830" spec="" >
-			<comment><![CDATA[In this table we have access to the order date.]]></comment>
 			<column name="OrderID" type="int" jt="4" mandatory="y" >
 				<identity><![CDATA[IDENTITY]]></identity>
 			</column>
@@ -289,7 +286,6 @@
 			</fk>
 		</table>
 		<table name="Products" row_count="77" spec="" >
-			<comment><![CDATA[This table gives details of all products and product status.]]></comment>
 			<column name="ProductID" type="int" jt="4" mandatory="y" >
 				<identity><![CDATA[IDENTITY]]></identity>
 			</column>
@@ -335,16 +331,16 @@
 				<column name="SupplierID" options=" asc" />
 			</index>
 			<constraint name="CK_Products_UnitPrice" >
-				<string><![CDATA[[UnitPrice]>=(0)]]></string>
+				<string><![CDATA[[UnitPrice]>=(0)]]></string>options="" 
 			</constraint>
 			<constraint name="CK_ReorderLevel" >
-				<string><![CDATA[[ReorderLevel]>=(0)]]></string>
+				<string><![CDATA[[ReorderLevel]>=(0)]]></string>options="" 
 			</constraint>
 			<constraint name="CK_UnitsInStock" >
-				<string><![CDATA[[UnitsInStock]>=(0)]]></string>
+				<string><![CDATA[[UnitsInStock]>=(0)]]></string>options="" 
 			</constraint>
 			<constraint name="CK_UnitsOnOrder" >
-				<string><![CDATA[[UnitsOnOrder]>=(0)]]></string>
+				<string><![CDATA[[UnitsOnOrder]>=(0)]]></string>options="" 
 			</constraint>
 			<fk name="FK_Products_Categories" to_schema="Northwinds.dbo" to_table="Categories" options="" >
 				<fk_column name="CategoryID" pk="CategoryID" />
@@ -376,24 +372,7 @@
 				<column name="ShipperID" options=" asc" />
 			</index>
 		</table>
-		<table name="ShoppingCart" prior="Cart" >
-			<column name="ShoppingCartID" prior="AccountID" type="int" jt="4" mandatory="y" />
-			<column name="CustomerID" type="nchar" length="5" jt="1" mandatory="y" />
-			<column name="ProductID" type="int" jt="4" mandatory="y" />
-			<column name="Quantity" type="int" jt="4" mandatory="y" />
-			<column name="Date" prior="date" type="date" jt="91" />
-			<index name="pk_Account" unique="PRIMARY_KEY" >
-				<column name="ShoppingCartID" />
-			</index>
-			<fk name="fk_Cart_Products" to_schema="Northwinds.dbo" to_table="Products" >
-				<fk_column name="ProductID" pk="ProductID" />
-			</fk>
-			<fk name="fk_ShoppingCart_Customers" to_schema="Northwinds.dbo" to_table="Customers" >
-				<fk_column name="CustomerID" pk="CustomerID" />
-			</fk>
-		</table>
 		<table name="Suppliers" row_count="29" spec="" >
-			<comment><![CDATA[This table has the information needed to access company name.]]></comment>
 			<column name="SupplierID" type="int" jt="4" mandatory="y" >
 				<identity><![CDATA[IDENTITY]]></identity>
 			</column>
@@ -899,7 +878,6 @@ AND fp.product_amount >= 5;]]></string>
 	</schema>
 	<connector name="SqlServer" database="SqlServer" driver_class="com.microsoft.sqlserver.jdbc.SQLServerDriver" driver_jar="mssql-jdbc-12.2.0.jre11.jar" driver_desc="Windows Authentication, Current User" host="localhost" port="1433" instance="Northwinds" useSystemProxy="false" />
 	<layout name="Main Layout" id="Layout-1ddb" show_relation="columns" >
-		<comment><![CDATA[Main Layout with shopping cart]]></comment>
 		<entity schema="Northwinds.dbo" name="Alphabetical list of products" color="BED3F4" x="2848" y="880" />
 		<entity schema="Northwinds.dbo" name="Categories" color="F4DDBE" x="1888" y="672" />
 		<entity schema="Northwinds.dbo" name="Category Sales for 1997" color="F4DDBE" x="2112" y="672" />
@@ -926,7 +904,6 @@ AND fp.product_amount >= 5;]]></string>
 		<entity schema="Northwinds.dbo" name="Sales Totals by Amount" color="BED3F4" x="2384" y="880" />
 		<entity schema="Northwinds.dbo" name="Sales by Category" color="BED3F4" x="2624" y="672" />
 		<entity schema="Northwinds.dbo" name="Shippers" color="C7F4BE" x="1024" y="848" />
-		<entity schema="Northwinds.dbo" name="ShoppingCart" color="3986C1" x="1456" y="512" />
 		<entity schema="Northwinds.dbo" name="Summary of Sales by Quarter" color="BED3F4" x="2848" y="688" />
 		<entity schema="Northwinds.dbo" name="Summary of Sales by Year" color="BED3F4" x="3120" y="688" />
 		<entity schema="Northwinds.dbo" name="Suppliers" color="F4DDBE" x="1888" y="976" />
@@ -953,8 +930,8 @@ AND fp.product_amount >= 5;]]></string>
 		</group>
 		<group name="CustomerCustomerDemo" color="F0ECF7" >
 			<entity schema="Northwinds.dbo" name="CustomerCustomerDemo" />
-			<entity schema="Northwinds.dbo" name="CustomerDemographics" />
 			<entity schema="Northwinds.dbo" name="Customers" />
+			<entity schema="Northwinds.dbo" name="CustomerDemographics" />
 		</group>
 		<group name="Products" color="F7F2EC" >
 			<entity schema="Northwinds.dbo" name="Products" />
@@ -965,13 +942,13 @@ AND fp.product_amount >= 5;]]></string>
 			<entity schema="Northwinds.dbo" name="Category Sales for 1997" />
 		</group>
 		<group name="Orders" color="EEF7EC" >
+			<entity schema="Northwinds.dbo" name="Orders" />
 			<entity schema="Northwinds.dbo" name="Order Details" />
 			<entity schema="Northwinds.dbo" name="Shippers" />
+			<entity schema="Northwinds.dbo" name="Order Subtotals" />
 			<entity schema="Northwinds.dbo" name="Order Details Extended" />
 			<entity schema="Northwinds.dbo" name="OrderTotalView" />
 			<entity schema="Northwinds.dbo" name="Orders Qry" />
-			<entity schema="Northwinds.dbo" name="Order Subtotals" />
-			<entity schema="Northwinds.dbo" name="Orders" />
 		</group>
 		<group name="Employees" color="ECECF7" >
 			<entity schema="Northwinds.dbo" name="Employees" />
@@ -979,22 +956,6 @@ AND fp.product_amount >= 5;]]></string>
 			<entity schema="Northwinds.dbo" name="EmployeeTerritories" />
 			<entity schema="Northwinds.dbo" name="Region" />
 		</group>
-	</layout>
-	<layout name="NorthwindsRevamped" id="Layout-2615" show_relation="columns" >
-		<comment><![CDATA[NorthwindsRevamped]]></comment>
-		<entity schema="Northwinds.dbo" name="Order Details" color="3986C1" x="544" y="48" />
-		<entity schema="Northwinds.dbo" name="Orders" color="3986C1" x="384" y="48" >
-			<column name="OrderID" />
-			<column name="CustomerID" />
-			<column name="EmployeeID" />
-			<column name="OrderDate" />
-			<column name="ShipVia" />
-		</entity>
-		<entity schema="Northwinds.dbo" name="Products" color="3986C1" x="208" y="48" />
-		<entity schema="Northwinds.dbo" name="Suppliers" color="3986C1" x="48" y="48" >
-			<column name="SupplierID" />
-			<column name="CompanyName" />
-		</entity>
 	</layout>
 	<layout name="~Layout with Sample Tools" id="Layout-5a" show_column_type="y" show_relation="columns" >
 		<entity schema="Northwinds.dbo" name="Alphabetical list of products" color="BED3F4" x="3472" y="704" />
@@ -1095,23 +1056,23 @@ GO]]></string>
 				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
 					<form_script type="DataSource" language="SQL" >
 						<var name="EmployeeID" type="4" />
-						<var name="LastName" type="-1" />
-						<var name="FirstName" type="-1" />
-						<var name="Title" type="-1" />
-						<var name="TitleOfCourtesy" type="-1" />
+						<var name="LastName" />
+						<var name="FirstName" />
+						<var name="Title" />
+						<var name="TitleOfCourtesy" />
 						<var name="BirthDate" type="92" />
 						<var name="HireDate" type="92" />
-						<var name="Address" type="-1" />
-						<var name="City" type="-1" />
-						<var name="Region" type="-1" />
-						<var name="PostalCode" type="-1" />
-						<var name="Country" type="-1" />
-						<var name="HomePhone" type="-1" />
-						<var name="Extension" type="-1" />
+						<var name="Address" />
+						<var name="City" />
+						<var name="Region" />
+						<var name="PostalCode" />
+						<var name="Country" />
+						<var name="HomePhone" />
+						<var name="Extension" />
 						<var name="Photo" type="-4" />
 						<var name="Notes" type="-1" />
 						<var name="ReportsTo" type="4" />
-						<var name="PhotoPath" type="-1" />
+						<var name="PhotoPath" />
 						<script ><![CDATA[SELECT * FROM Northwinds.dbo.Employees]]></script>
 					</form_script>
 					<param name="i0" value="FirstName" />
@@ -1123,23 +1084,23 @@ GO]]></string>
 				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
 					<form_script type="DataSource" language="SQL" >
 						<var name="EmployeeID" type="4" />
-						<var name="LastName" type="-1" />
-						<var name="FirstName" type="-1" />
-						<var name="Title" type="-1" />
-						<var name="TitleOfCourtesy" type="-1" />
+						<var name="LastName" />
+						<var name="FirstName" />
+						<var name="Title" />
+						<var name="TitleOfCourtesy" />
 						<var name="BirthDate" type="92" />
 						<var name="HireDate" type="92" />
-						<var name="Address" type="-1" />
-						<var name="City" type="-1" />
-						<var name="Region" type="-1" />
-						<var name="PostalCode" type="-1" />
-						<var name="Country" type="-1" />
-						<var name="HomePhone" type="-1" />
-						<var name="Extension" type="-1" />
+						<var name="Address" />
+						<var name="City" />
+						<var name="Region" />
+						<var name="PostalCode" />
+						<var name="Country" />
+						<var name="HomePhone" />
+						<var name="Extension" />
 						<var name="Photo" type="-4" />
 						<var name="Notes" type="-1" />
 						<var name="ReportsTo" type="4" />
-						<var name="PhotoPath" type="-1" />
+						<var name="PhotoPath" />
 						<script ><![CDATA[SELECT * FROM Northwinds.dbo.Employees]]></script>
 					</form_script>
 					<cell type="label" name="EmployeeID" pos="0,0,0,0,c,c" />
