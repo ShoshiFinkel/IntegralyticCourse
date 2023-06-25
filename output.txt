@@ -1,0 +1,2 @@
+0    Life is short. Smile while you Still have teeth. 
+Name: ParsedText, dtype: object

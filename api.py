@@ -34,8 +34,9 @@ def new_func(filename, api_key, language):
     result = json.loads(test_file)
     df = json_normalize(result['ParsedResults'])
     text = df['ParsedText'].str.replace('\r\n', ' ')
-    print (text)
-    return text
+    text = str(text)
+    with open('output.txt', 'w') as f:
+        f.write(text)
 
 
 file_name = 'life_is_short.jpg'
