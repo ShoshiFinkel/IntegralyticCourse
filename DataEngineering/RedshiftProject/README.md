@@ -1,3 +1,5 @@
+## Redshift Project
+
 ### Project Description and Purpose:
 
 > This project is about creating a SQL analytics database for a music streaming service called Sparkify. The goal is to help the analytics team understand what, when and how users are playing songs on the company's music app.
@@ -19,8 +21,9 @@
 
 ### How to Run:
 
-> - Run creating_tables.py from terminal to set up the database and tables.
-> - Run etl.py from terminal to process and load data into the database.
+>To run Python scripts with the python command, you need to open a command-line and type in the word python , or python3 if you have both versions, followed by the path to your script, just like this: $ python3 creating_tables.py
+> - Run ***creating_tables.py*** from terminal to set up the database and tables.
+> - Run ***etl.py*** from terminal to process and load data into the database.
 
 
 
