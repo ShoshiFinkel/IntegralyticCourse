@@ -1,2 +1,5 @@
 configuration.cfg
 __pycache__
+DataEngineering/hn_stories_2014.json
+.gitignore
+DataEngineering/HousingProject/Housing.csv
