@@ -1,0 +1,10 @@
+12:37:16 ,623 root  INFO  Create a connection to database
+13:48:18 ,680 root  INFO  A connection to the database was created successfully
+13:48:18 ,685 root  INFO  A table was created successfully
+13:48:18 ,815 root  INFO  CSV file was loaded to the new table.
+14:28:22 ,260 root  INFO  A connection to the database was created successfully
+14:28:22 ,262 root  INFO  A table was created successfully
+14:28:22 ,443 root  INFO  CSV file was loaded to the new table.
+14:29:12 ,611 root  INFO  A connection to the database was created successfully
+14:29:12 ,611 root  INFO  A table was created successfully
+14:29:12 ,773 root  INFO  CSV file was loaded to the new table.
